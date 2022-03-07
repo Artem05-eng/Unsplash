@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/profileAppbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/unsplash_green"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:backgroundTint="@color/unsplash_green"
+            android:id="@+id/profileTopAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:menu="@menu/top_profile_menu"
+            app:title="@string/profile_title"
+            app:titleTextColor="@color/black"
+            app:titleMarginStart="16dp"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/profileAvatar"
+        android:layout_margin="16dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:cardCornerRadius="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileAppbar"
+        app:layout_constraintEnd_toStartOf="@+id/containerLayout">
+        <ImageView
+            android:id="@+id/imageProfileAvatar"
+            android:scaleType="centerCrop"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            tools:src="@tools:sample/avatars"/>
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/containerLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/profileAvatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profileAppbar"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/profileName"
+            android:textAlignment="textStart"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profile Name"
+            android:layout_marginBottom="8dp"/>
+        <TextView
+            android:id="@+id/profileLabel"
+            android:textAlignment="textStart"
+            android:textSize="14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\@Profile_label"
+            android:layout_marginBottom="24dp"/>
+
+        <TextView
+            android:id="@+id/profileGeolocation"
+            android:textAlignment="textStart"
+            android:textSize="14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profile location"/>
+    </LinearLayout>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/profileTab"
+        android:layout_margin="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/containerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <com.google.android.material.tabs.TabItem
+        android:id="@+id/profilePhotoes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ФОТОГРАФИИ" />
+
+    <com.google.android.material.tabs.TabItem
+        android:id="@+id/profileLikes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ПОНРАВИЛОСЬ" />
+
+    <com.google.android.material.tabs.TabItem
+        android:id="@+id/profileCollections"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="КОЛЛЕКЦИИ" />
+
+    </com.google.android.material.tabs.TabLayout>
+    <FrameLayout
+        android:layout_margin="16dp"
+        android:id="@+id/profileContent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileTab"
+        android:layout_width="0dp"
+        android:layout_height="0dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
